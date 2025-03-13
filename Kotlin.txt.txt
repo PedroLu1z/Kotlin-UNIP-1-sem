@@ -1,0 +1,158 @@
+
+fun saudacao(){
+	print("Ola Mundo")
+}
+	
+fun main(){
+	saudacao() 
+}
+
+Ola Mundo!
+
+-------------------------------------------------------------------------------
+
+fun saudacao(nome: String){
+	println("Ola, $nome!") //passar o que eu por de nome dentro desse print
+	/*$nome - passar um atributo a uma variavel (definida nos parametros como
+	'nome: String' */
+}
+
+fun main(){
+	saudacao("Maria") /*passando uma String pq nos parametros da funcao 
+		defini que ele precisa de uma string.
+	*/
+}
+
+Ola, Maria
+
+-------------------------------------------------------------------------------
+
+fun placar(valor:String, pontos: Int){
+	println("Jogador $valor - pontos: $pontos")
+}
+
+fun main(){
+	val nome = "Pedro" 
+	placar(nome, 3)
+	placar("Maria", 4)
+}
+
+Jogador Pedro - pontos: 3
+Jogador Maria - pontos: 4
+
+-------------------------------------------------------------------------------
+
+fun placar(valor:String="Anonimo", pontos: Int=0){
+	println("Jogador $valor - pontos: $pontos")
+}
+
+fun main(){
+	val nome = "Pedro" 
+	placar(nome, 3)
+	placar("Maria", 4)
+	placar()
+}
+
+Jogador Pedro - pontos: 3
+Jogador Maria - pontos: 4
+Jogador Anonimo - pontos: 0
+
+
+------------------------------------------------------------------------------
+
+fun placar(valor:String="Anonimo", pontos: Int=0){
+	println("Jogador $valor - pontos: $pontos")
+}
+
+fun placar(valor:String){
+	println("$valor, usando assinatura em kotlin")
+}
+
+fun main(){
+	val nome = "Pedro" 
+	placar(nome)
+	placar("Maria", 4)
+	placar()
+}
+
+
+Pedro, usando assinatura em kotlin
+Jogador Maria - pontos: 4
+Jogador Anonimo - pontos: 0
+
+----------------------------------------------------------------------------
+
+fun numeros(n1: Int, n2:Int):Int{
+    return n1+n2
+}
+
+fun main() {
+    var resultado=numeros(7,5)
+    println(resultado)
+}
+
+12
+
+
+fun numeros(n1: Int, n2:Int):Boolean{
+    return n1==n2
+}
+//tem que devolver um boolean se nao da erro
+
+fun main() {
+    var resultado=numeros(7,5)
+    println(resultado)
+}
+
+false
+----------------------------------------------------------------------------
+fun quadrado(x: Int) = x * x
+
+fun main() {
+    println(quadrado(8))
+}
+
+64
+----------------------------------------------------------------------------
+
+fun String.saudar(){
+    println("Ola, $this")
+}
+
+
+fun main() {
+    "Kotlin".saudar()
+}
+
+Ola, Kotlin
+
+-------------------------------------------------------------------------
+
+fun main() {
+    var multiplica = fun(a:Int, b:Int):Int{
+        return a*b
+    }
+    println("A multiplicação é: ${multiplica(2,3)}")
+}
+
+A multiplicação é: 6
+
+---------------------------------------------------------------------------
+
+Função Lambda
+fun main() {
+    val soma: (Int, Int) -> Int = {a,b -> a+b}
+    println(soma(10,12))
+}
+
+22
+---------------------------------------------------------------------------
+Função Ordem Superior
+fun main() {
+	val numeros = listOf(1,2,3,4,5)
+    val numerosPares = numeros.filter {it % 2 == 0}
+	println(numerosPares)
+}
+// % -> calcula o resto
+
+[2,4]
